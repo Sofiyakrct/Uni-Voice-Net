@@ -1,0 +1,34 @@
+VoiceAuth_Project/
+│
+├── data/
+│   ├── enrollment/           # User enrollment recordings (raw audio)
+│   │   ├── user1/
+│   │   ├── user2/
+│   ├── challenge_phrases/    # Text/audio for challenge-response
+│   └── test/                 # Test/demo recordings
+│
+├── models/
+│   ├── cnn_rnn_model.pth     # Main voice feature extraction model
+│   ├── spoof_detector.pth    # Anti-spoofing model
+│   ├── embedding_model.pth   # ECAPA or similar embedding model
+│   └── mic_normalizer.pkl    # Preprocessing / normalization configs
+│
+├── scripts/
+│   ├── preprocess.py         # Noise suppression, VAD, normalization
+│   ├── train_model.py        # Train CNN+RNN + embedding models
+│   ├── enroll_user.py        # Multi-sample enrollment + augmentation
+│   ├── authenticate.py       # Main login/auth pipeline
+│   ├── mic_detect.py         # Detect AirPods / Laptop Mic
+│   └── challenge_response.py # Generate/display challenge phrases
+│
+├── utils/
+│   ├── audio_utils.py        # Audio loading, trimming, augmentation
+│   ├── evaluation.py         # Cosine similarity, thresholding
+│   └── spoof_utils.py        # Anti-spoof helper functions
+│
+├── logs/
+│   └── *.log                 # Optional logs of enrollment/auth events
+│
+├── requirements.txt          # Python packages
+├── README.md                 # Project description + instructions
+└── main.py                   # Launch script (enroll/login demo)
